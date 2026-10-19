@@ -1,5 +1,7 @@
 # FloodPath
 
+**Live:** https://jashan-arora.github.io/floodpath/
+
 Live flood map and safer routes for Southbank, Melbourne. Frontend-only: every flood segment, report, sensor, route and alert is mock data generated in the browser, so there is no backend and no API key.
 
 - **Phones**: full-screen map with a bottom sheet and tab bar. Installable from the browser ("Add to Home Screen") and opens like a native app.
@@ -16,7 +18,9 @@ Other scripts: `npm run build` (type-check and production build to `dist/`), `np
 
 ## Deploy
 
-`npm run build` produces a static site in `dist/`. Any static host works; client-side routes need an SPA fallback to `index.html`, which is already configured for:
+**GitHub Pages (current)**: every push to `main` runs `.github/workflows/deploy.yml`, which builds with `BASE_PATH=/<repo>/` (the site lives under `/floodpath/`), copies `index.html` to `404.html` so deep links like `/floodpath/route/j-fss` load, and publishes `dist/`. Check runs with `gh run list` or the repo's Actions tab.
+
+`npm run build` produces a static site in `dist/`, so other static hosts work too. Client-side routes need an SPA fallback to `index.html`, which is already configured for:
 
 - **Vercel**: `npx vercel` from the repo root (`vercel.json` holds the rewrite).
 - **Netlify**: `npx netlify deploy --prod --dir=dist`, or drag `dist/` onto app.netlify.com/drop (`public/_redirects` holds the rewrite).
