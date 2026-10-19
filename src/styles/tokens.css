@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+/*
+ * Design tokens.
+ * Brand colours are sampled from the Figma reference (only three Figma variables exist).
+ * Severity colours follow CLAUDE.md section 6.
+ */
+@theme {
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: "Lexend Variable", "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+
+  /* Figma: navy ink, accent blue, light-blue tints, page gradient */
+  --color-ink: #183b56;
+  --color-ink-soft: #2b4d69;
+  --color-ink-deep: #0f2a3f;
+  --color-muted: #667085;
+  --color-subtle: #98a2b3;
+  --color-line: #e2e9f0;
+  --color-accent: #247dce;
+  --color-accent-strong: #1b68ae;
+  --color-link: #185fa5;
+  --color-tint: #e6f3fa;
+  --color-tint-strong: #d2e7f4;
+  --color-field: #edf6fc;
+  --color-page: #f3f8fc;
+  --color-sky: #dcedf9;
+
+  /* Severity: never used without an icon and a label */
+  --color-flooded: #e24b4a;
+  --color-flooded-ink: #a32d2d;
+  --color-flooded-tint: #fdeceb;
+  --color-caution: #ef9f27;
+  --color-caution-ink: #854f0b;
+  --color-caution-tint: #fef3c7;
+  --color-clear: #22a06b;
+  --color-safe: #0f6e56;
+  --color-safe-tint: #e1f3ec;
+
+  /* Map categories */
+  --color-transit: #da8016;
+  --color-medical: #c11574;
+  --color-power: #6e4ff6;
+  --color-water: #0e7490;
+  --color-crew: #475467;
+  --color-sensor: #2563eb;
+
+  --radius-control: 12px;
+  --radius-card: 16px;
+  --radius-sheet: 24px;
+
+  --shadow-card: 0 1px 2px rgb(24 59 86 / 0.06), 0 4px 14px rgb(24 59 86 / 0.07);
+  --shadow-float: 0 2px 6px rgb(24 59 86 / 0.1), 0 12px 32px rgb(24 59 86 / 0.16);
+  --shadow-sheet: 0 -6px 28px rgb(24 59 86 / 0.14);
+
+  --ease-soft: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  --animate-rise: rise 0.32s var(--ease-soft) both;
+  --animate-drop: drop 0.36s var(--ease-soft) both;
+  --animate-fade: fade 0.2s ease-out both;
+
+  @keyframes rise {
+    from { transform: translateY(18px); opacity: 0; }
+    to { transform: none; opacity: 1; }
+  }
+  @keyframes drop {
+    from { transform: translateY(-14px); opacity: 0; }
+    to { transform: none; opacity: 1; }
+  }
+  @keyframes fade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+}

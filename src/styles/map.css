@@ -1,0 +1,43 @@
+/* Leaflet overrides. The basemap is muted slightly so flood overlays carry the colour. */
+.leaflet-container {
+  font-family: inherit;
+  background: #e9eef2;
+}
+.leaflet-tile-pane {
+  filter: saturate(0.62) brightness(1.04) contrast(0.96);
+}
+.leaflet-div-icon.fp-marker,
+.fp-marker {
+  background: none;
+  border: 0;
+}
+
+/* Flooded streets: moving dots read as water flowing over the road */
+@keyframes flow {
+  to { stroke-dashoffset: -28; }
+}
+.fp-flow {
+  animation: flow 1.6s linear infinite;
+}
+
+/* One-off pulse when a street has just flooded */
+@keyframes flash {
+  0% { stroke-opacity: 0; stroke-width: 10px; }
+  25% { stroke-opacity: 0.55; }
+  100% { stroke-opacity: 0; stroke-width: 34px; }
+}
+.fp-flash {
+  animation: flash 1.4s ease-out 3;
+}
+
+/* Planned route that is blocked: drawn dashed underneath */
+.fp-route-muted {
+  stroke-dasharray: 2 9;
+}
+
+.fp-marker-btn {
+  transition: transform 0.18s var(--ease-soft);
+}
+.fp-marker-btn[data-selected="true"] {
+  transform: scale(1.18);
+}
